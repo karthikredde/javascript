@@ -11,6 +11,7 @@
 			var email=document.getElementById("email").value
 			var firstNameCheck=/^[a-zA-Z ]+$/
 			var mobileCheck=/^[0-9]{10}$/
+			var emailCheck=/^[a-zA-Z0-9_.#]+@[a-z]+\.[a-z]{2,3}$/
 			if(firstName==""||firstName.length<3){
 				alert("please enter your name or check the length")
 				return false
@@ -27,6 +28,14 @@
 				alert("mobile number must carry digits")
 				return false
 			}
+			if(email==""){
+				alert("please enter email Id")
+				return false
+			}
+			if(!email.match(emailCheck)){
+				alert("please enter a valid email Id")
+				return false
+			}
 			return true
 		}
 	</script>
@@ -34,7 +43,8 @@
 <body>
 	<form onsubmit="return validate()">
 		<p><input placeholder="enter your name" id="firstname"/></p>
-		<p><input placeholder="enter your mobile number" id="mobile"/></p>
+		<p><input placeholder="enter your mobile nu
+			mber" id="mobile"/></p>
 		<p><input placeholder="enter your Email Id" id="email"/></p>
 		<button>submit</button>
 	</form>
