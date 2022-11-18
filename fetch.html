@@ -19,8 +19,8 @@
 		})
 		console.log(promiseObj)
 		console.log("hello")
-	</script> -->
-	<section id="emp" style="display: flex;">
+	</script> 
+	 <section id="emp" style="display: flex;">
 
 	</section>
 	<script type="text/javascript">
@@ -40,13 +40,39 @@
 					block.innerHTML+=`
 					<div>
 						<p>${employees[i].first_name}</p>
-						<img src="${employees[i].avatar}" width="50%" />
+						<p><img src="${employees[i].avatar}" width="50%" /></p>
 						<p>${employees[i].email}</p>
 					</div>`
-					console.log(employees[i].first_name)
+					//console.log(employees[i].first_name)
 					
 				}
 			}
+	</script> -->
+<div><p><input placeholder="enter your name" id="username"/></p>
+	<p><input placeholder="enter your mobile number" id="number"/></p>
+	<button onclick="user()">submit</button>
+</div>
+	<script type="text/javascript">
+		function user(){
+			var username=document.getElementById("username").value,
+			number=document.getElementById("number").value;
+			console.log(username,number);
+		}
+		fetch("https://reqres.in/api/users",{
+			method:"POST",
+			headers:{
+				"content-type":"application/json"
+			}, 
+			body:JSON.stringify({user:username,no:number})
+		})
+		.then((res)=>{
+			console.log(res)
+			return res.json()
+		})
+		.then((f)=>{
+			console.log(f)
+		})
 	</script>
+	
 </body>
 </html>
